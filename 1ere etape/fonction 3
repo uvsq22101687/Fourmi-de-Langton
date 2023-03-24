@@ -1,0 +1,15 @@
+
+WHITE = "white"
+BLACK = "black"
+
+def changement_color(color):
+    if color == WHITE:
+        return BLACK
+    elif color == BLACK:
+        return WHITE
+print(changement_color(WHITE))
+
+
+def changement_case(color, x, y):
+    
+    new_couleur = changement_color()

@@ -1,0 +1,14 @@
+
+X_cellule = 71
+Y_cellule = 51
+Taille_Cellule= 13
+
+
+def bouge(x, y):
+    case_x = 0
+    case_y =0
+    case_x +=x
+    case_y +=y
+    return
+
+print(bouge(2,3))
