@@ -28,3 +28,5 @@ for i in range(8):
         canvas.create_rectangle((i*largeur_case,j*hauteur_case),
                 ((i+1)*largeur_case,(j+1)*hauteur_case), fill=color, outline="black")
 racine.mainloop() # lancement de la boucle principale
+
+okkey

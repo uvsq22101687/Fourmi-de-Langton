@@ -1,14 +1,32 @@
+import tkinter as tk
+grid=[["" for j in range(52)] for i in range(72)]
 
-X_cellule = 71
-Y_cellule = 51
-Taille_Cellule= 13
+HEIGHT =1500
+WIDTH = 1500
+largeur_case = WIDTH //  72
+hauteur_case = HEIGHT // 72
+racine = tk.Tk() #création de la fenêtre racine
+Canvas = tk.Canvas(racine,width=WIDTH, height=HEIGHT)
+
+for i in range(HEIGHT):
+    for j in range(WIDTH):
+        (i+j) % 2 == 0
+        color= "white"
+        Canvas.create_rectangle((i*largeur_case,j*hauteur_case),
+                ((i+1)*largeur_case,(j+1)*hauteur_case), fill=color, outline="black")
 
 
-def bouge(x, y):
-    case_x = 0
-    case_y =0
-    case_x +=x
-    case_y +=y
-    return
+                
+def position_initiale(event):
+    global x,y
+    x=event.x 
+    y=event.y
+    r=7
+    ant= Canvas.create_oval(x-r,y-r,x+r,y+r, fill='red')
 
-print(bouge(2,3))
+
+
+# Création de la fenêtre racine
+racine.bind("<Button-1>", position_initiale)
+Canvas.grid()
+racine.mainloop()
