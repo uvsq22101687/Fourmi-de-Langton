@@ -6,7 +6,7 @@ largeur_case = WIDTH // 8
 hauteur_case = HEIGHT // 8
 
 
-#changement de couleur
+#changement de couleur de la case
 WHITE = "white"
 BLACK = "black"
 
