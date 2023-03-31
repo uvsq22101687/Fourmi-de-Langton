@@ -29,7 +29,7 @@ for i in range(8):
         
 def position_initiale(event):
     global ant
-    global x,y,r
+    global x,y
     x=event.x
     y=event.y
     pos = (x,y)

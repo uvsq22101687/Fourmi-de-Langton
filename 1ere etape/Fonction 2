@@ -1,14 +1,16 @@
 #direction
 Right = 1
 Left = 2
-
+White = "white"
+Black = "black"
 
 def direction(color):
     global dire
     dire=0
-    if color == "White" : 
+    if color == White : 
         return (dire + 1) % 4 
-    elif color == "Black":
+    elif color == Black:
         return (dire+ 2) % 4
     
-print(direction('white'))
+    
+print(direction(White))
