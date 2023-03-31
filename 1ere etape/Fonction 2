@@ -15,4 +15,4 @@ def left_direction(direction):
         return (dire + 2)%4
     
     
-print(direction(White))
+print(right_direction(White))
