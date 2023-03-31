@@ -54,7 +54,15 @@ def position_initiale(event):
     ant= canvas.create_oval(x-r,y-r,x+r,y+r, fill='red')
     print(canvas.coords(ant))
 
-
+def new_direction():
+    if direction== up:
+        return x,y-1
+    elif direction== bottom:
+        return x,y+1
+    elif direction== right:
+        return x+1,y
+    elif direction== left:
+        return x-1,y 
 
 # Création de la fenêtre racine
 racine.bind("<Button-1>", position_initiale)
