@@ -1,5 +1,5 @@
 import tkinter as tk
-
+grid=[["" for j in range(8)] for i in range(8)]
 HEIGHT = 500
 WIDTH = 500
 largeur_case = WIDTH // 8 
@@ -27,6 +27,20 @@ for i in range(8):
         color= "white"
         canvas.create_rectangle((i*largeur_case,j*hauteur_case),
                 ((i+1)*largeur_case,(j+1)*hauteur_case), fill=color, outline="black")
+        
+def position_initiale(event):
+    global ant
+    global x,y,r
+    x=event.x
+    y=event.y
+    pos = (x,y)
+    r=7
+    ant= canvas.create_oval(x-r,y-r,x+r,y+r, fill='red')
+    print(canvas.coords(ant))
+
+
+
+# Création de la fenêtre racine
+racine.bind("<Button-1>", position_initiale)
 racine.mainloop() # lancement de la boucle principale
 
-okkey

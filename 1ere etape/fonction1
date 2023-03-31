@@ -18,15 +18,21 @@ for i in range(HEIGHT):
 
                 
 def position_initiale(event):
-    global x,y
-    x=event.x 
+    global ant
+    global x,y,r
+    x=event.x
     y=event.y
+    pos = (x,y)
     r=7
     ant= Canvas.create_oval(x-r,y-r,x+r,y+r, fill='red')
+    print(Canvas.coords(ant))
 
+
+    
 
 
 # Création de la fenêtre racine
 racine.bind("<Button-1>", position_initiale)
 Canvas.grid()
+
 racine.mainloop()
