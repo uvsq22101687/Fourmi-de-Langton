@@ -17,7 +17,6 @@ def changement_color(color):
         return WHITE
 
 
-
 racine = tk.Tk() #création de la fenêtre racine
 canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH)
 canvas.grid()
