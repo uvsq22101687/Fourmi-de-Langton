@@ -32,8 +32,6 @@ def left_direction(direction):
     if color == Black :
         return (dire + 2)%4
     
-    
-print(right_direction(White))
 
 
 racine = tk.Tk() #création de la fenêtre racine
