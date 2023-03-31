@@ -4,13 +4,15 @@ Left = 2
 White = "white"
 Black = "black"
 
-def direction(color):
+def right_direction(direction):
     global dire
     dire=0
     if color == White : 
         return (dire + 1) % 4 
-    elif color == Black:
-        return (dire+ 2) % 4
+
+def left_direction(direction):
+    if color == Black :
+        return (dire + 2)%4
     
     
 print(direction(White))
