@@ -16,6 +16,25 @@ def changement_color(color):
     elif color == BLACK:
         return WHITE
 
+# changement de direction en fonction en de la couleur de la case
+Right = 1
+Left = 2
+White = "white"
+Black = "black"
+
+def right_direction(direction):
+    global dire
+    dire=0
+    if color == White : 
+        return (dire + 1) % 4 
+
+def left_direction(direction):
+    if color == Black :
+        return (dire + 2)%4
+    
+    
+print(right_direction(White))
+
 
 racine = tk.Tk() #création de la fenêtre racine
 canvas = tk.Canvas(racine, height=HEIGHT, width=WIDTH)
