@@ -17,3 +17,12 @@ fourmi_row = ROWS // 2
 fourmi_col = COLS // 2
 direction = "up"
 previous_steps=[]
+
+#Permet le changement de la couleur de la case en fonction de la position de la fourmi
+def changement_couleur():
+   global color, fourmi_row, fourmi_col, direction, previous_steps
+   color = grid[fourmi_row][fourmi_col]
+   #permet de récuperer la position case actuelle (pour annuler)
+   previous_steps.append((fourmi_row,fourmi_col,direction,color))
+   print(previous_steps)
+   grid[fourmi_row][fourmi_col] = BLACK if color == WHITE else WHITE
