@@ -48,3 +48,15 @@ def rotation_fourmi():
             direction = "right"
         elif direction == "right":
             direction = "up"
+    # Déplacement de la fourmi
+def deplacement_fourmi():
+    global fourmi_row, fourmi_col
+    rotation_fourmi()
+    if direction == "up":
+        fourmi_row -= 1
+    elif direction == "right":
+        fourmi_col += 1
+    elif direction == "down":
+        fourmi_row += 1
+    elif direction == "left":
+        fourmi_col -= 1
