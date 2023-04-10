@@ -60,3 +60,18 @@ def deplacement_fourmi():
         fourmi_row += 1
     elif direction == "left":
         fourmi_col -= 1
+
+def bouger_la_fourmi():
+    global fourmi_row, fourmi_col , previous_steps
+    deplacement_fourmi()
+    #permet à la grille d'avoir la propriété d'un tore
+    if fourmi_row >= ROWS:
+        fourmi_row = 0
+    elif fourmi_row < 0:
+        fourmi_row = ROWS-1
+
+
+    if fourmi_col >= COLS:
+        fourmi_col = 0
+    elif fourmi_col < 0:
+        fourmi_col = COLS-1
