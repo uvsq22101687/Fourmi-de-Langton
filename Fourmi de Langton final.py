@@ -84,19 +84,20 @@ racine.title("Fourmi de Langton")
 # Création du canvas
 canvas = tk.Canvas(racine, width=WIDTH, height=HEIGHT, bg=WHITE)
 canvas.pack()
-canvas.create_oval
+
 # Fonction pour dessiner la grille
 def dessiner_grille():
    for i in range(ROWS):
        for j in range(COLS):
-           color = grid[i][j]
+           couleur = grid[i][j]
            x1 = j * TAILLE_CELLULE
            y1 = i * TAILLE_CELLULE
            x2 = x1 + TAILLE_CELLULE
            y2 = y1 + TAILLE_CELLULE
-           canvas.create_rectangle(x1, y1, x2, y2, fill=color, outline="black")
+           canvas.create_rectangle(x1, y1, x2, y2, fill=couleur, outline="black")
 
 
+dessiner_grille()
 
 # lancement de la boucle principale Tkinter
 racine.mainloop()
