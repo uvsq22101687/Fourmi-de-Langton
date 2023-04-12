@@ -89,13 +89,12 @@ canvas.pack()
 def dessiner_grille():
    for i in range(ROWS):
        for j in range(COLS):
-           color = grid[i][j]
+           couleur = grid[i][j]
            x1 = j * TAILLE_CELLULE
            y1 = i * TAILLE_CELLULE
            x2 = x1 + TAILLE_CELLULE
            y2 = y1 + TAILLE_CELLULE
-           canvas.create_rectangle(x1, y1, x2, y2, fill=color, outline="black")
-
+           canvas.create_rectangle(x1, y1, x2, y2, fill=couleur, outline="black")
 # Fonction pour faire avancer la fourmi d'un pas
 def Next():
     bouger_la_fourmi()
