@@ -84,7 +84,7 @@ racine.title("Fourmi de Langton")
 # Création du canvas
 canvas = tk.Canvas(racine, width=WIDTH, height=HEIGHT, bg=WHITE)
 canvas.pack()
-canvas.create_oval
+
 # Fonction pour dessiner la grille
 def dessiner_grille():
    for i in range(ROWS):
@@ -96,7 +96,10 @@ def dessiner_grille():
            y2 = y1 + TAILLE_CELLULE
            canvas.create_rectangle(x1, y1, x2, y2, fill=color, outline="black")
 
-
+# Fonction pour faire avancer la fourmi d'un pas
+def Next():
+    bouger_la_fourmi()
+    dessiner_grille()
 
 # lancement de la boucle principale Tkinter
 racine.mainloop()
