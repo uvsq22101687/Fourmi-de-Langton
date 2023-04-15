@@ -121,6 +121,10 @@ def cancel():
     print(previous_steps)
     dessiner_grille()
 
+# Dessin de la grille initiale
+dessiner_grille()
+
+
 
 # lancement de la boucle principale Tkinter
 racine.mainloop()
