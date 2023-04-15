@@ -95,10 +95,32 @@ def dessiner_grille():
            x2 = x1 + TAILLE_CELLULE
            y2 = y1 + TAILLE_CELLULE
            canvas.create_rectangle(x1, y1, x2, y2, fill=couleur, outline="black")
-# Fonction pour faire avancer la fourmi d'un pas
+
+# Fonction pour faire avancer la fourmi d'un pas(soit exécuter 1 étape à la fois)
 def Next():
     bouger_la_fourmi()
     dessiner_grille()
+
+# Fonction qui permet à la fourmi de se déplacer que tant que celui-ci est actif
+def Play():
+    Next()
+    racine.after(1, Play)
+
+def pause():
+    pass
+
+# Fonction pour revenir en arrière d'une étape
+def cancel():
+    global fourmi_row, fourmi_col, direction, previous_steps
+    if any(previous_steps):
+        row,col,previous_dir,couleur =previous_steps.pop()
+        grid[row][col] = couleur
+        direction = previous_dir
+        fourmi_row = row
+        fourmi_col = col
+    print(previous_steps)
+    dessiner_grille()
+
 
 # lancement de la boucle principale Tkinter
 racine.mainloop()
