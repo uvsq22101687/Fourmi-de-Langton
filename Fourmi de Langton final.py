@@ -124,7 +124,13 @@ def cancel():
 # Dessin de la grille initiale
 dessiner_grille()
 
-
+# Ajout des boutons
+button_next = tk.Button(racine, text="Next", command=Next)
+button_next.pack(side=tk.LEFT, padx=5, pady=5)
+button_play = tk.Button(racine, text="Play", command=Play)
+button_play.pack(side=tk.LEFT, padx=5, pady=5)
+button_cancel = tk.Button(racine, text="cancel", command=cancel)
+button_cancel.pack(side=tk.LEFT, padx=5, pady=5)
 
 # lancement de la boucle principale Tkinter
 racine.mainloop()
