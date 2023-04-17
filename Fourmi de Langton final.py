@@ -8,6 +8,7 @@ ROWS = HEIGHT // TAILLE_CELLULE
 COLS = WIDTH // TAILLE_CELLULE
 BLACK = "black"
 WHITE = "white"
+Playing = True
 
 # Initialisation de la grille
 grid = [[WHITE for _ in range(COLS)] for _ in range(ROWS)]
@@ -63,7 +64,8 @@ def deplacement_fourmi():
 
 def bouger_la_fourmi():
     global fourmi_row, fourmi_col , previous_steps
-    deplacement_fourmi()
+     if Playing: 
+        deplacement_fourmi()
     #permet à la grille d'avoir la propriété d'un tore
     if fourmi_row >= ROWS:
         fourmi_row = 0
@@ -106,11 +108,12 @@ def Play():
     Next()
     racine.after(1, Play)
 
-def pause():
-    pass
+def Pause():
+    global Playing
+    Playing = not Playing
 
 # Fonction pour revenir en arrière d'une étape
-def cancel():
+def Cancel():
     global fourmi_row, fourmi_col, direction, previous_steps
     if any(previous_steps):
         row,col,previous_dir,couleur =previous_steps.pop()
@@ -129,8 +132,11 @@ button_next = tk.Button(racine, text="Next", command=Next)
 button_next.pack(side=tk.LEFT, padx=5, pady=5)
 button_play = tk.Button(racine, text="Play", command=Play)
 button_play.pack(side=tk.LEFT, padx=5, pady=5)
-button_cancel = tk.Button(racine, text="cancel", command=cancel)
+button_cancel = tk.Button(racine, text="Cancel", command=Cancel)
 button_cancel.pack(side=tk.LEFT, padx=5, pady=5)
+button_pause = tk.Button(racine,text ="Pause", command= Pause)
+button_pause.pack(side=tk.LEFT, padx= 5, pady=5)
+
 
 # lancement de la boucle principale Tkinter
 racine.mainloop()
