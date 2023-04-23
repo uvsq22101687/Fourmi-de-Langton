@@ -1,5 +1,6 @@
 import tkinter as tk
-
+import json
+from tkinter import filedialog #importe le module de tkinter
 # Constantes
 WIDTH = 500
 HEIGHT = 500
@@ -9,6 +10,7 @@ COLS = WIDTH // TAILLE_CELLULE
 BLACK = "black"
 WHITE = "white"
 Playing = True
+DELAY =700
 
 # Initialisation de la grille
 grid = [[WHITE for _ in range(COLS)] for _ in range(ROWS)]
@@ -64,7 +66,7 @@ def deplacement_fourmi():
 
 def bouger_la_fourmi():
     global fourmi_row, fourmi_col , previous_steps
-     if Playing: 
+    if Playing:
         deplacement_fourmi()
     #permet à la grille d'avoir la propriété d'un tore
     if fourmi_row >= ROWS:
@@ -98,6 +100,9 @@ def dessiner_grille():
            y2 = y1 + TAILLE_CELLULE
            canvas.create_rectangle(x1, y1, x2, y2, fill=couleur, outline="black")
 
+        
+    
+
 # Fonction pour faire avancer la fourmi d'un pas(soit exécuter 1 étape à la fois)
 def Next():
     bouger_la_fourmi()
@@ -112,6 +117,7 @@ def Pause():
     global Playing
     Playing = not Playing
 
+
 # Fonction pour revenir en arrière d'une étape
 def Cancel():
     global fourmi_row, fourmi_col, direction, previous_steps
@@ -123,6 +129,38 @@ def Cancel():
         fourmi_col = col
     print(previous_steps)
     dessiner_grille()
+
+
+        
+
+# Fonction pour enregistrer une instance en cours du jeu dans un fichier JSON
+def Sauvegarder(event):
+    sauvargder_instance= filedialog.asksaveasfile(initialdir ="/",title = "Sauvegarder partie",defaultextension=".json")#permet de sauvegarder une fenêtre Tkinter
+    # Création d'un dictionnaire pour stocker les données du jeu 
+    if sauvargder_instance:
+        donnees_fourmi= {
+            "grid": grid,#permet de spécifier les cases blanches et noires
+            "fourmi_row": fourmi_row,
+            "fourmi_col": fourmi_col,
+            "direction": direction,
+         }
+    with open("jeu.json", "w") as fichier:# Ouverture du fichier en mode écriture
+        json.dump(donnees_fourmi, fichier)# Écriture dans un fichier des données au format JSON
+
+# Fonction pour ouvir une instance enregistré depuis un fichier JSON
+def Ouvrir(event):
+    global grid, fourmi_row, fourmi_col, direction
+    ouvrir_instance= filedialog.askopenfilename(title='Ouvrir une instance',filetypes=[("Fichier JSON",".json")])#permet d'ouvir une fenêtre Tkinter selon nom du fichier
+    if ouvrir_instance:
+        with open("jeu.json", "r") as fichier:# Ouverture du fichier en mode lecture
+            donnees = json.load(fichier)# Lecture des données depuis le fichier JSON
+         # Récupération des données stockés pour mettre à jour l'instance
+            grid = donnees["grid"]
+            fourmi_row = donnees["fourmi_row"]
+            fourmi_col = donnees["fourmi_col"]
+            direction = donnees["direction"]
+            dessiner_grille()#permet de jouer après avoir ouvert l'instance
+    
 
 # Dessin de la grille initiale
 dessiner_grille()
@@ -136,7 +174,8 @@ button_cancel = tk.Button(racine, text="Cancel", command=Cancel)
 button_cancel.pack(side=tk.LEFT, padx=5, pady=5)
 button_pause = tk.Button(racine,text ="Pause", command= Pause)
 button_pause.pack(side=tk.LEFT, padx= 5, pady=5)
-
+racine.bind("<KeyPress-s>", Sauvegarder)#permet de sauvegarder en appuyant sur la touche "s" du clavier en minuscule
+racine.bind("<KeyPress-o>", Ouvrir)#permet d'ouvrir le fichier en appuyant sur la touche "o" du clavier en minuscule
 
 # lancement de la boucle principale Tkinter
 racine.mainloop()
