@@ -10,7 +10,7 @@ COLS = WIDTH // TAILLE_CELLULE
 BLACK = "black"
 WHITE = "white"
 Playing = True
-DELAY =700
+
 
 # Initialisation de la grille
 grid = [[WHITE for _ in range(COLS)] for _ in range(ROWS)]
