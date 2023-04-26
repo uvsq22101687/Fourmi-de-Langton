@@ -9,7 +9,8 @@ COLS = WIDTH // TAILLE_CELLULE
 BLACK = "black"
 WHITE = "white"
 Playing = True
-
+DELAY = 100  
+MIN_DELAY = 10
 # Initialisation de la grille
 grid = [[WHITE for _ in range(COLS)] for _ in range(ROWS)]
 
@@ -107,8 +108,18 @@ def Next():
 
 # Fonction qui permet à la fourmi de se déplacer que tant que celui-ci est actif
 def Play():
-    Next()
-    racine.after(1, Play)
+    global Playing, DELAY
+    Next()  # Appeler la fonction Next une fois
+    if Playing:
+        # Réduire le délai et appeler la fonction Play avec un nouveau délai
+        DELAY = max(MIN_DELAY, DELAY - 10)  # Réduire le délai de 10 millisecondes
+        racine.after(DELAY, Play)
+
+# Fonction pour changer la vitesse des étapes
+def speed_up():
+    global DELAY
+    DELAY = max(MIN_DELAY, DELAY - 50)  # Réduire le délai de 50 millisecondes
+    Play()
 
 def Pause():
     global Playing
@@ -126,12 +137,8 @@ def Cancel():
     print(previous_steps)
     dessiner_grille()
 
-# Fonction pour changer la vitesse des étapes
-def Accelerate ():
-    for i in range(10):
-        Next()
 
-racine.after(100, Accelerate)
+
 
 
 
@@ -147,8 +154,9 @@ button_cancel = tk.Button(racine, text="Cancel", command=Cancel)
 button_cancel.pack(side=tk.LEFT, padx=5, pady=5)
 button_pause = tk.Button(racine,text ="Pause", command= Pause)
 button_pause.pack(side=tk.LEFT, padx= 5, pady=5)
-button_Accelerate = tk.Button(racine,text ="Accelerate", command= Accelerate)
-button_Accelerate.pack(side=tk.LEFT, padx= 5, pady=5)
+button_speed_up = tk.Button(racine, text="Accelereer", command= speed_up)
+button_speed_up.pack(side=tk.LEFT, padx=5, pady=5)
+
 
 
 # lancement de la boucle principale Tkinter
