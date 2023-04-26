@@ -64,7 +64,7 @@ def deplacement_fourmi():
 
 def bouger_la_fourmi():
     global fourmi_row, fourmi_col , previous_steps
-     if Playing: 
+    if Playing: 
         deplacement_fourmi()
     #permet à la grille d'avoir la propriété d'un tore
     if fourmi_row >= ROWS:
@@ -77,6 +77,8 @@ def bouger_la_fourmi():
         fourmi_col = 0
     elif fourmi_col < 0:
         fourmi_col = COLS-1
+
+        
 
 # Création de la fenêtre Tkinter
 racine = tk.Tk()
@@ -124,6 +126,15 @@ def Cancel():
     print(previous_steps)
     dessiner_grille()
 
+# Fonction pour changer la vitesse des étapes
+def Accelerate ():
+    for i in range(10):
+        Next()
+
+racine.after(100, Accelerate)
+
+
+
 # Dessin de la grille initiale
 dessiner_grille()
 
@@ -136,6 +147,8 @@ button_cancel = tk.Button(racine, text="Cancel", command=Cancel)
 button_cancel.pack(side=tk.LEFT, padx=5, pady=5)
 button_pause = tk.Button(racine,text ="Pause", command= Pause)
 button_pause.pack(side=tk.LEFT, padx= 5, pady=5)
+button_Accelerate = tk.Button(racine,text ="Accelerate", command= Accelerate)
+button_Accelerate.pack(side=tk.LEFT, padx= 5, pady=5)
 
 
 # lancement de la boucle principale Tkinter
