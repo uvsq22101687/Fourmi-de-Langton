@@ -109,16 +109,15 @@ def Next():
 # Fonction qui permet à la fourmi de se déplacer que tant que celui-ci est actif
 def Play():
     global Playing, DELAY
-    Next()  # Appeler la fonction Next une fois
+    Next()  
     if Playing:
-        # Réduire le délai et appeler la fonction Play avec un nouveau délai
-        DELAY = max(MIN_DELAY, DELAY - 10)  # Réduire le délai de 10 millisecondes
+        DELAY = max(MIN_DELAY, DELAY - 10)  
         racine.after(DELAY, Play)
 
 # Fonction pour changer la vitesse des étapes
 def speed_up():
     global DELAY
-    DELAY = max(MIN_DELAY, DELAY - 50)  # Réduire le délai de 50 millisecondes
+    DELAY = max(MIN_DELAY, DELAY - 50) 
     Play()
 
 def Pause():
