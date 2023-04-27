@@ -33,4 +33,5 @@ https://www.youtube.com/watch?v=Tr2Uq_pD6p0
 https://vincent.developpez.com/cours-tutoriels/python/tkinter/apprendre-creer-interface-graphique-tkinter-python-3/#LVII-A-6
 ( pour la partie sur la vitesse de la fourmi)
 
+NB:manque de motivation et de participation de la part d'Inès
 
