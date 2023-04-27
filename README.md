@@ -13,7 +13,7 @@ On retrouve sur l'interface 5 boutons :
 - le bouton Pause : permet de mettre en pause le déroulement des étapes en appuyant dessus une première fois et permet de relancer le déroulement des étapes en appuyant dessus une seconde fois. 
 - le bouton Next : permet de passer 1 étape à la fois
 - le bouton Cancel : permet de revenir en arrière d'une étape. Pour utiliser ce bouton après le bouton Play, il faut d'abord appuyer sur le bouton pause puis sur le bouton Cancel. 
-- le bouton Accelerer: permet de changer la vitesse de passage des étapes
+- le bouton speed_up: permet de changer la vitesse de passage des étapes
 
 En appuyant sur la touche 's', vous pouvez enregistrer votre instance sous forme de fichier json à l'endroit souhaité après lui avoir donné un nom.
 Pour l'ouvrir il suffit d'appuyer sur la touche 'o', et lorsque que la fenêtre apparait vous pouvez entrer le nom de votre fichier pour l'ouvrir. 
@@ -28,3 +28,9 @@ Pour continuer le jeu après l'ouverture de l'instance, il faut appuyer sur Play
 Sources utilisées :
 https://github.com/Moremar/langton_ant/blob/master/langton_ant.py (pour la partie sur les directions que peut prendre la fourmi)
 http://pascal.ortiz.free.fr/contents/tkinter/projets_tkinter/langton/langton.html (pour la partie sur la rotation de la fourmi) 
+https://www.youtube.com/watch?v=6A2LkRaY2Mc
+https://www.youtube.com/watch?v=Tr2Uq_pD6p0
+https://vincent.developpez.com/cours-tutoriels/python/tkinter/apprendre-creer-interface-graphique-tkinter-python-3/#LVII-A-6
+( pour la partie sur la vitesse de la fourmi)
+
+
