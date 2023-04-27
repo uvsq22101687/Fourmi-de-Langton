@@ -13,7 +13,7 @@ On retrouve sur l'interface 5 boutons :
 - le bouton Pause : permet de mettre en pause le déroulement des étapes en appuyant dessus une première fois et permet de relancer le déroulement des étapes en appuyant dessus une seconde fois. 
 - le bouton Next : permet de passer 1 étape à la fois
 - le bouton Cancel : permet de revenir en arrière d'une étape. Pour utiliser ce bouton après le bouton Play, il faut d'abord appuyer sur le bouton pause puis sur le bouton Cancel. 
-- le bouton speed_up: permet de changer la vitesse de passage des étapes
+- le bouton accelerer et ralentir: permet de changer la vitesse de passage des étapes
 
 En appuyant sur la touche 's', vous pouvez enregistrer votre instance sous forme de fichier json à l'endroit souhaité après lui avoir donné un nom.
 Pour l'ouvrir il suffit d'appuyer sur la touche 'o', et lorsque que la fenêtre apparait vous pouvez entrer le nom de votre fichier pour l'ouvrir. 
